@@ -11,8 +11,8 @@ defmodule Furlex.Fetcher do
   Fetches a url and extracts the body
   """
   @spec fetch(String.t) :: {:ok, String.t} | {:error, Atom.t}
-  def fetch(url) do
-    case HTTPoison.get(url) do
+  def fetch(url, opts) do
+    case HTTPoison.get(url, [], opts) do
       {:ok, %{body: body, status_code: status_code}} -> {:ok, body, status_code}
       other                -> other
     end
