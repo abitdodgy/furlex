@@ -43,7 +43,7 @@ defmodule Furlex do
   """
   @spec unfurl(String.t) :: {:ok, __MODULE__.t} | {:error, Atom.t}
   def unfurl(url, opts \\ []) do
-    with {:ok, body, status_code} <- Fetcher.fetch(url),
+    with {:ok, body, status_code} <- Fetcher.fetch(url, opts),
          {:ok, oembed} <- Fetcher.fetch_oembed(url),
          {:ok, facebook} <- Facebook.parse(body),
          {:ok, twitter} <- Twitter.parse(body),
