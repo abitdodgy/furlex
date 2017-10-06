@@ -11,7 +11,7 @@ defmodule Furlex do
   alias Furlex.{Fetcher, Parser}
   alias Furlex.Parser.{Facebook, HTML, JsonLD, Twitter}
 
-  defstruct [:canonical_url, :oembed, :facebook, :twitter, :json_ld, :other]
+  defstruct [:canonical_url, :oembed, :facebook, :twitter, :json_ld, :other, :status_code]
 
   @type t :: %__MODULE__{
     canonical_url: String.t,
@@ -19,7 +19,8 @@ defmodule Furlex do
     facebook: Map.t,
     twitter: Map.t,
     json_ld: List.t,
-    other: Map.t
+    other: Map.t,
+    canonical_url: Integer.t
   }
 
   @doc false
