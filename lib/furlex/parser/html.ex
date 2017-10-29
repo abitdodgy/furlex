@@ -33,7 +33,7 @@ defmodule Furlex.Parser.HTML do
     if is_nil(value) do
       Map.put(acc, key, to_add)
     else
-      Map.put(acc, key, [to_add, value])
+      Map.put(acc, key, [to_add | value])
     end
   end
 
